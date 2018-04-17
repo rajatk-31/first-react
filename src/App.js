@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Radium, {StyleRoot} from 'radium';
-import './App.css';
+import clas from './App.css';
 import Person from './person/person'
 
 class App extends Component {
@@ -113,17 +113,17 @@ class App extends Component {
     }
     const classes = [];
     if(this.state.persons.length<=3){
-      classes.push('Red')
+      classes.push(clas.Red)
     }
     if(this.state.persons.length>=2){
-      classes.push('Bold')
+      classes.push(clas.Bold)
     }
     if(this.state.showPerson){
       classes.push('Green')
     }
     return (
       
-        <div className="App">
+        <div className={clas.App}>
           <h1>Hi, this is rajat starting the react again</h1>
           <p className = {classes.join(' ')}>Something is not good</p>
           {/* One way of calling function.

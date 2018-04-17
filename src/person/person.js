@@ -1,6 +1,6 @@
 import React from "react";
 // import Radium from 'radium';
-import './person.css'
+import clas from './person.css'
 
 const person = (props)=>{
     // const styles ={
@@ -9,7 +9,7 @@ const person = (props)=>{
     //     }
     // }
     return (
-        <div className = "Person">
+        <div className = {clas.Person}>
             <p onClick={props.click}>Hi this is {props.name} and i am {props.age} years old.</p>
             {/* <p onClick = {props.click}>{props.children}</p> */}
             <input type= "text" onChange={props.changed} value={props.name} />
