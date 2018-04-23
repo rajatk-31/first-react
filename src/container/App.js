@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import Radium, {StyleRoot} from 'radium';
 import clas from './App.css';
-import Person from './person/person'
+import Person from '../components/persons/person/person';
+import Persons from '../components/persons/persons';
+import Cockpit from '../components/cockpit/cockpit'
 
 class App extends Component {
   /**
@@ -75,30 +77,16 @@ class App extends Component {
     /**
      * Inline styles
      */
-    const style = {
-      backgroundColor: "white",
-      font: "inherit",
-      padding: '8px',
-      border: "1px solid red",
-      cursor: 'pointer',
-      // ':hover': {
-      //   backgroundColor: 'black',
-      //   color: 'white'
-      // }
-    }
+    
     let personss= null;
     if(this.state.showPerson){
       personss= (
         <div>
-          {this.state.persons.map((person,index)=>{
-            return <Person 
-              name={person.name}
-              age={person.age}
-              key ={person.key}
-              changed = {(event)=>this.nameChangeHandler(event,person.key)}
-              click ={()=>this.deletePerson(index)
-            }></Person>
-          })},
+          <Persons 
+          persons = {this.state.persons}
+          clicked={this.deletePerson}
+          changed={this.nameChangeHandler}/>
+          
           {/* <Person name= {this.state.persons[0].name} age={this.state.persons[0].age}/>
         
           <Person name= {
@@ -109,7 +97,6 @@ class App extends Component {
           <Person name= {this.state.persons[2].name} age={this.state.persons[2].age}/> */}
         </div>
       )
-      style.backgroundColor = 'red'
     }
     const classes = [];
     if(this.state.persons.length<=3){
@@ -124,16 +111,11 @@ class App extends Component {
     return (
       
         <div className={clas.App}>
-          <h1>Hi, this is rajat starting the react again</h1>
-          <p className = {classes.join(' ')}>Something is not good</p>
-          {/* One way of calling function.
-            This can be inefficient at times . So try to ignore this syntax */}
-          {/* <button style={style} onClick ={()=> this.switchNameHandler("Amit")}>Switch Names</button> */}
-          <button style={style} onClick ={this.toggleHandler}>Switch Names</button>
+          <Cockpit 
+          persons={this.state.persons}
+          clicked={this.toggleHandler}/>
           {personss}
         </div>
-      
-      
     );
   }
 }
