@@ -5,7 +5,20 @@ import Person from '../components/persons/person/person';
 import Persons from '../components/persons/persons';
 import Cockpit from '../components/cockpit/cockpit'
 
+
+/**
+ * Order of functions invoked on start 
+ * 1. constructor
+ * 2. componentWillMount()
+ * 3. render()
+ * 4. componentDidMount()
+ */
+
 class App extends Component {
+  constructor (props) {
+    super (props);
+    console.log(props)
+  }
   /**
    * Initial state
    */
@@ -111,6 +124,7 @@ class App extends Component {
     return (
       
         <div className={clas.App}>
+        <button onClick= {()=>{this.setState({showPerson: true})}}>Show Person</button>
           <Cockpit 
           persons={this.state.persons}
           clicked={this.toggleHandler}/>

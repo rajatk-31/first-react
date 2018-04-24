@@ -27,6 +27,7 @@ const cockpit = props =>{
     return (
         <div>
             <h1>Hi, this is react again</h1>
+            
           <p className = {classes.join(' ')}>Something is not good</p>
           {/* One way of calling function.
             This can be inefficient at times . So try to ignore this syntax */}
